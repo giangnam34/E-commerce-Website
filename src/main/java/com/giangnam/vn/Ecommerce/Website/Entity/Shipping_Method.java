@@ -21,7 +21,7 @@ public class Shipping_Method {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@OneToMany(mappedBy = "shippingMethod")
 	private List<Shop_Order> orderList;

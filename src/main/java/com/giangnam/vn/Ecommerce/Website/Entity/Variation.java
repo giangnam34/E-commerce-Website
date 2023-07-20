@@ -23,7 +23,7 @@ public class Variation {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@OneToMany(mappedBy = "variation")
 	private List<Variation_Option> variationOptionList;

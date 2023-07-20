@@ -22,7 +22,7 @@ public class Promotion {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@ManyToMany
 	private List<Product_Category> categoryList;

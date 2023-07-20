@@ -22,7 +22,7 @@ public class User_Payment_Method {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id", nullable=false)

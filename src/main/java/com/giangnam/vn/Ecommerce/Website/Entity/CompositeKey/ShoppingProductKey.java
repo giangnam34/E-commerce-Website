@@ -19,8 +19,8 @@ import lombok.Setter;
 public class ShoppingProductKey implements Serializable {
 
 	@Column(name="shop_order_id")
-	private int shoppingId;
+	private Integer shoppingId;
 	@Column(name="product_id")
-	private int productId;
+	private Integer productId;
 	
 }

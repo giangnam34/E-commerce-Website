@@ -24,7 +24,7 @@ public class Product_Item {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@OneToMany(mappedBy = "productItem")
 	private List<Shopping_Cart_Item> shoppingCartItem;

@@ -23,7 +23,7 @@ public class Variation_Option {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@ManyToMany
 	private List<Product_Item> productItemList;
