@@ -8,6 +8,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,11 +30,14 @@ public class Promotion {
 	@ManyToMany
 	private List<Product_Category> categoryList;
 	
+	@NotNull
 	private String name;
 	
 	private String description;
-	
+	@Min(value = 0)
+	@Max(value = 100)
 	private double discount;
+	
 	
 	private Date startDate;
 	

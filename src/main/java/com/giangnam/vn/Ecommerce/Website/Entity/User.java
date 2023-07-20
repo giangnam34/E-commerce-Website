@@ -7,6 +7,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,12 +35,15 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<Shop_Order> orderList;
 	
+	@Email
 	private String email;
 	
+	@Size(min = 10, max = 11)
 	private String phoneNumber;
 	
 	private String address;
 	
+	@Size(min = 8)
 	private String password;
 	
 	private String role;

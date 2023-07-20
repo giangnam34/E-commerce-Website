@@ -7,6 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +28,9 @@ public class Shipping_Method {
 	@OneToMany(mappedBy = "shippingMethod")
 	private List<Shop_Order> orderList;
 	
+	@NotNull
 	private String name;
 	
+	@Min(value = 0)
 	private double price;
 }

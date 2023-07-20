@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,5 +27,6 @@ public class Payment_Type {
 	@OneToMany(mappedBy = "paymentType")
 	private List<User_Payment_Method> userPaymentMethodList;
 	
+	@NotNull
 	private String name;
 }

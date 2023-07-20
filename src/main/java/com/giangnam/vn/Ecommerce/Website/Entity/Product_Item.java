@@ -10,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,9 +40,11 @@ public class Product_Item {
 	@ManyToMany
 	private List<Variation_Option> variationOption;
 	
+	@Min(value = 0)
 	private int quantityStock;
 	
 	private String productImage;
 	
+	@Min(value = 0)
 	private double price;
 }
