@@ -36,7 +36,7 @@ public class Shop_Order {
 	@JoinColumn(name = "shipping_method_id")
 	private Shipping_Method shippingMethod;
 	
-	@OneToMany(mappedBy = "shopOrder")
+	@OneToMany(mappedBy = "shop_Order")
 	private List<Order> orderList;
 	
 	@OneToMany(mappedBy = "shopOrder")

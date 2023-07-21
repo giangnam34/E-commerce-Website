@@ -17,7 +17,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Entity(name = "Order_Product")
 public class Order {
 	
 	@Id
@@ -25,8 +25,8 @@ public class Order {
 	
 	@ManyToOne
     @MapsId("shopOderId")
-    @JoinColumn(name = "order_id")
-    private Shop_Order shopOrder;
+    @JoinColumn(name = "orderid")
+    private Shop_Order shop_Order;
 	
 	@ManyToOne
     @MapsId("productId")
