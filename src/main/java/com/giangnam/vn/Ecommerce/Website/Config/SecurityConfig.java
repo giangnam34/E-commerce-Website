@@ -39,14 +39,6 @@ public class SecurityConfig {
 		return http.build();
 	}
 	
-	@Bean
-	public DataSource dataSource() {
-		return new EmbeddedDatabaseBuilder()
-				.setType(EmbeddedDatabaseType.H2)
-				.addScript(JdbcDaoImpl.DEFAULT_USER_SCHEMA_DDL_LOCATION)
-				.build();
-	}
-	
 	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {

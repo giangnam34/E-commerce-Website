@@ -38,7 +38,6 @@ public class Promotion {
 	@Max(value = 100)
 	private double discount;
 	
-	
 	private Date startDate;
 	
 	private Date endDate;
