@@ -29,9 +29,9 @@ VALUES (250, 1, 1, '2023-06-15', 'Shipped', '123 Main Street'),
        ;
        
 -- Thêm dữ liệu vào bảng `user_payment_method`
-INSERT INTO `user_payment_method` (`is_default`, `payment_method_id`, `payment_type_id`, `user_id`, `expiry_date`, `account_number`, `provider`)
-VALUES (1, 1, 1, 1, '2025-01-31', '1234567812345678', 'Visa'),
-       (0, 2, 2, 1, '2023-12-31', 'paypal_account@example.com', 'PayPal')
+INSERT INTO `user_payment_method` (`is_default`, `payment_type_id`, `user_id`, `expiry_date`, `account_number`, `provider`)
+VALUES (1, 1, 1, '2025-01-31', '1234567812345678', 'Visa'),
+       (0, 2, 1, '2023-12-31', 'paypal_account@example.com', 'PayPal')
        -- Thêm các phương thức thanh toán của người dùng khác ở đây
        ;
 

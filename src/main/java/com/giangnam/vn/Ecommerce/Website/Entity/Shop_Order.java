@@ -3,6 +3,9 @@ package com.giangnam.vn.Ecommerce.Website.Entity;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,12 +16,10 @@ import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -30,17 +31,17 @@ public class Shop_Order {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
+	@JsonBackReference
 	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name = "shipping_method_id")
+	@JsonBackReference
 	private Shipping_Method shippingMethod;
 	
-	@OneToMany(mappedBy = "shop_Order")
+	@OneToMany(orphanRemoval = true, mappedBy = "shop_Order")
+	@JsonManagedReference
 	private List<Order> orderList;
-	
-	@OneToMany(mappedBy = "shopOrder")
-	private List<User_Payment_Method> paymentList;
 	
 	private Date orderDate;
 	
@@ -51,4 +52,14 @@ public class Shop_Order {
 	private int orderTotal;
 	
 	private String orderStatus;
+	
+	public void addOrder(Order order) {
+		orderList.add(order);
+		order.setShop_Order(this);
+	}
+	
+	public void removeOrder(Order order) {
+		orderList.remove(order);
+		order.setShop_Order(null);
+	}
 }

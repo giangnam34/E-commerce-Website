@@ -1,7 +1,7 @@
 package com.giangnam.vn.Ecommerce.Website.Entity;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,12 +12,10 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -28,7 +26,7 @@ public class Promotion {
 	private Integer id;
 	
 	@ManyToMany
-	private List<Product_Category> categoryList;
+	private Set<Product_Category> categoryList;
 	
 	@NotNull
 	private String name;

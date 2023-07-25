@@ -10,4 +10,5 @@ import com.giangnam.vn.Ecommerce.Website.Entity.CompositeKey.OrderProductKey;
 @Repository
 public interface Product_CategoryRepository extends JpaRepository<Product_Category, Integer >{
 
+	Product_Category findByCategoryName(String categoryName);
 }

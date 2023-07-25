@@ -2,6 +2,8 @@ package com.giangnam.vn.Ecommerce.Website.Entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,12 +11,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -26,15 +26,13 @@ public class User_Payment_Method {
 	
 	@ManyToOne
 	@JoinColumn(name="user_id", nullable=false)
+	@JsonBackReference
 	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name="payment_type_id")
+	@JsonBackReference
 	private Payment_Type paymentType;
-	
-	@ManyToOne
-	@JoinColumn(name="payment_method_id")
-	private Shop_Order shopOrder;
 	
 	private String provider;
 	
