@@ -1,9 +1,9 @@
 use `e-commerce`;
 
 -- Thêm dữ liệu vào bảng `user`
-INSERT INTO `user` (`address`, `email`, `password`, `phone_number`, `role`)
-VALUES ('123 Main Street', 'john@example.com', 'hashed_password', '1234567890', 'customer'),
-       ('456 Oak Avenue', 'jane@example.com', 'hashed_password', '9876543210', 'customer')
+INSERT INTO `user` (`address`, `email`, `first_name`, `last_name`, `password`, `phone_number`, `role`)
+VALUES ('123 Main Street', 'john@example.com', 'giang', 'nam', 'hashed_password', '1234567890', 'customer'),
+       ('456 Oak Avenue', 'jane@example.com', 'giang', 'nam', 'hashed_password', '9876543210', 'customer')
        -- Thêm người dùng khác ở đây
        ;
        

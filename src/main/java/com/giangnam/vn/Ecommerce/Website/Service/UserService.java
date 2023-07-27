@@ -64,15 +64,16 @@ public class UserService {
 		return userRepository.findByAddress(address);
 	}
 	
-	public boolean createNewUser(String email, String password, String phoneNumber, String address) {
+	public String createNewUser(String email, String password, String firstName, String lastName, String phoneNumber, String address) {
 		try {
-			if (!validation.isValidPassWord(password)) return false;
-			User user = new User(null, null, null, null, email, phoneNumber, address, bCryptPasswordEncoder.encode(password), "CUSTOMER");
-			if (!creatNewCartUser(email)) return false;
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
+			if (!validation.isValidPassWord(password)) return "Password is invalid";
+			System.out.println(bCryptPasswordEncoder.encode(password));
+			User user = new User(email, phoneNumber, address, firstName, lastName, bCryptPasswordEncoder.encode(password), "CUSTOMER");
+			userRepository.save(user);
+			if (!creatNewCartUser(email)) return "Fail";
+			return "Success";
+		} catch (Exception ex) {
+			return ex.toString();		}
 	}
 	
 	public boolean deleteUser(String email) {

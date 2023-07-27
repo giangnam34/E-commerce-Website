@@ -31,7 +31,7 @@ public class Shop_Order {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	@JsonBackReference
+	@JsonBackReference(value = "user3")
 	private User user;
 	
 	@ManyToOne

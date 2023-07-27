@@ -28,7 +28,7 @@ public class Shopping_Cart {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable=false)
-	@JsonBackReference
+	@JsonBackReference(value = "user2")
 	private User user; 
 	
 	@OneToMany(orphanRemoval = true, mappedBy = "shoppingCart")

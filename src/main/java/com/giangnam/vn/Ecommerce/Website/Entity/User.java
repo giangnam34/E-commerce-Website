@@ -31,15 +31,15 @@ public class User {
 	private Integer id;
 	
 	@OneToMany(orphanRemoval = true, mappedBy="user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JsonManagedReference
+	@JsonManagedReference(value = "user1")
 	private List<User_Payment_Method> paymentList;
 	
 	@OneToMany(orphanRemoval = true, mappedBy="user", cascade = CascadeType.ALL)
-	@JsonManagedReference
+	@JsonManagedReference(value = "user2")
 	private List<Shopping_Cart> cartList;
 	
 	@OneToMany(orphanRemoval = true, mappedBy = "user", cascade = CascadeType.ALL)
-	@JsonManagedReference
+	@JsonManagedReference(value = "user3")
 	private List<Shop_Order> orderList;
 	
 	@Email
@@ -52,10 +52,16 @@ public class User {
 	
 	private String address;
 	
+	private String firstName;
+	
+	private String lastName;
+	
 	@Size(min = 8)
 	private String password;
 	
 	private String role;
+	
+	
 	
 	
 	public void addUserPaymentMethod(User_Payment_Method user_Payment_Method) {
@@ -86,6 +92,18 @@ public class User {
 	public void removeShopOrder(Shop_Order shop_Order) {
 		orderList.remove(shop_Order);
 		shop_Order.setUser(null);
+	}
+
+	public User(@Email @NotBlank String email, @Size(min = 10, max = 11) String phoneNumber, String address,
+			String firstName, String lastName, String password, String role) {
+		super();
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.role = role;
 	}
 	
 }
