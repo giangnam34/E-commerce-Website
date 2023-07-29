@@ -1,9 +1,10 @@
 package com.giangnam.vn.Ecommerce.Website.Entity;
 
-import java.util.Set;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,10 +27,10 @@ public class Variation_Option {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@ManyToMany
-	private Set<Product_Item> productItemList;
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Product_Item> productItemList;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "variation_id")
 	@JsonBackReference
 	private Variation variation;

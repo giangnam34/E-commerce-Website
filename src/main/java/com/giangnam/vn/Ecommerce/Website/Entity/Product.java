@@ -27,7 +27,7 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@OneToMany(orphanRemoval = true, mappedBy = "product")
+	@OneToMany(orphanRemoval = false, mappedBy = "product")
 	@JsonManagedReference
 	private List<Product_Item> productItemList;
 	

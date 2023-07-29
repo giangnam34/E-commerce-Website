@@ -76,12 +76,12 @@ public class UserService {
 			return ex.toString();		}
 	}
 	
-	public boolean deleteUser(String email) {
+	public String deleteUser(String email) {
 		try {
 			userRepository.delete(userRepository.findByEmail(email));
-			return true;
+			return "Xoa Nguoi Dung Thanh Cong!!!";
 		} catch (Exception e) {
-			return false;
+			return e.toString();
 		}
 	}
 	
